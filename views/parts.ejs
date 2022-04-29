@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+    <div class="box">
+        <h1>XML Read</h1>
+
+        <div class="item">
+            <form>
+                <button class="btn btn-primary btn-lg" formaction="/" formmethod="POST" type="submit">Number of the products</button>
+                <button class="btn btn-light btn-lg" formaction="/names" formmethod="POST" type="submit">List of the names</button>
+                <button class="btn btn-dark btn-lg" formaction="/parts" formmethod="POST" type="submit">List of the parts</button>
+            </form>
+        </div>
+        <% if(Items !== null){ %>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>To see the spare part of each product, scroll down!</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product's name</th>
+                                <th>Parts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% Items.forEach(function(item) { %>
+                                <tr>
+                                    <td>
+                                        <%= item.$.name %>
+                                    </td>
+                                    <td>
+                                        <% if(item.parts != null && typeof (item.parts) != 'undefined') { %>
+
+                                            <% if (Array.isArray(item.parts.part)) { %>
+                                                <% item.parts.part.forEach(function(part) { %>
+                                                    <%= part._ %><br>
+                                                        <% }) %>
+                                                            <% } %>
+                                                                <% if (!Array.isArray(item.parts.part)) { %>
+                                                                    <% if (Array.isArray(item.parts.part.item)) { %>
+                                                                        <% item.parts.part.item.forEach(function(part) { %>
+                                                                            <%= part.$.name %><br>
+                                                                                <% }) %>
+                                                                                    <% } %>
+                                                                                        <% if (!Array.isArray(item.parts.part.item)) { %>
+                                                                                            <%= item.parts.part.item.$.name %>
+                                                                                                <% } %>
+                                                                                                    <% } %>
+                                                                                                        <% } %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <% } %>
+    </div>
+    <%- include('partials/footer') %>

@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+    <div class="box">
+        <h1>XML Read</h1>
+
+        <div class="item">
+            <form>
+                <button class="btn btn-primary btn-lg" formaction="/" formmethod="POST" type="submit">Number of the products</button>
+                <button class="btn btn-light btn-lg" formaction="/names" formmethod="POST" type="submit">List of the names</button>
+                <button class="btn btn-dark btn-lg" formaction="/parts" formmethod="POST" type="submit">List of the parts</button>
+            </form>
+        </div>
+
+
+        <% if(Items !== null){ %>
+            <span class="row msg">
+                    Number of products: <%= Items.length %>
+                    
+                    
+                </span>
+            <% } %>
+    </div>
+    <%- include('partials/footer') %>
