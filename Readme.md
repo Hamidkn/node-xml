@@ -10,10 +10,6 @@ Each task is implemented using buttons that recover required information related
 
 The app is implemented using node.js and express.js. For reading an XML file the xml2js is used.
 
-## Deploy:
-The application is deployed in the following link: 
-```
-```
 ## Usage: 
 
 First, install dependencies in package.json by the following command:

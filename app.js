@@ -2,9 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const xml2js = require('xml2js');
 const fs = require('fs');
-const { DOMParser } = require('xmldom');
-const { parse } = require('path');
-const util = require('util');
 
 const parser = new xml2js.Parser({
     explicitArray: false,
